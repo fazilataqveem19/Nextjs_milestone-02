@@ -5,7 +5,6 @@ import Portfolio from "@/components/portfolio";
 import Skills from "@/components/skills";
 import Contact from "@/components/contact";
 import Footer from "@/components/footer";
-import Image from "next/image";
 
 export default function Home() {
   return (
