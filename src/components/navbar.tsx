@@ -4,43 +4,38 @@ import React, { useState } from "react";
 import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
 import { motion } from "framer-motion";
 
-
-
 const navLinks = [
     { title: "About", path: "#about" },
     { title: "Portfolio", path: "#portfolio" },
 ];
 
 const Navbar = () => {
-    const [nav, setNav] = useState(false)
+    const [nav, setNav] = useState(false);
 
     const toggleNav = () => {
-        setNav(!nav)
-    }
+        setNav(!nav);
+    };
 
-    const closeNav = () =>  {
-        setNav(false)
-    }
+    const closeNav = () => {
+        setNav(false);
+    };
 
     const menuVariants = {
         open: {
             x: 0,
             transition: {
                 stiffness: 20,
-                damping: 15
-            }
+                damping: 15,
+            },
         },
-
         closed: {
-             x: '-100%',
+            x: "-100%",
             transition: {
                 stiffness: 20,
-                damping: 15
-            }
-        }
-    }
-
-
+                damping: 15,
+            },
+        },
+    };
 
     return (
         <div className="text-white/70 pt-6">
@@ -52,7 +47,6 @@ const Navbar = () => {
                                 <p>{link.title}</p>
                             </Link>
                         </li>
-
                     ))}
 
                     <li>
@@ -60,7 +54,6 @@ const Navbar = () => {
                             <h1 className="text-lg font-bold text-white/70 cursor-pointer">Contact Me</h1>
                             <div className="relative">
                                 <div className="absolute w-2/3 h-1 transition-all duration-300 ease-out bg-orange-400 rounded-full group-hover:w-full"></div>
-
                                 <div className="mt-1 absolute w-2/3 h-1 transition-all duration-300 ease-out bg-orange-600 rounded-full group-hover:w-full"></div>
                             </div>
                         </a>
@@ -74,26 +67,27 @@ const Navbar = () => {
 
             <motion.div
                 initial={false}
-                animate={nav ? 'open' : 'closed'}
+                animate={nav ? "open" : "closed"}
                 variants={menuVariants}
-                className="fixed left-0 top-0 w-full z-40 bg-white/70"
+                className="fixed left-0 top-0 w-full z-40 bg-gray-900/90 text-white"
             >
                 <ul className="text-4xl font-semibold my-24 text-center space-y-8">
                     {navLinks.map((link, index) => (
                         <li key={index}>
                             <Link href={link.path} onClick={closeNav}>
-                            {link.title}
+                                {link.title}
                             </Link>
                         </li>
                     ))}
+                    <li>
+                        <Link href="#contact" onClick={closeNav}>
+                            Contact Me
+                        </Link>
+                    </li>
                 </ul>
-
             </motion.div>
-
-
         </div>
-    )
-
-}
+    );
+};
 
 export default Navbar;
