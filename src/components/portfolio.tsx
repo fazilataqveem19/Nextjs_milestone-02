@@ -57,8 +57,8 @@ const Portfolio = () => {
       <h2 className="text-5xl sm:text-7xl text-white/70">{`0${index + 1}`}</h2>
       <h2 className="text-3xl sm:text-4xl mb-4">{project.title}</h2>
       <p className="text-md sm:text-lg text-white/70 mb-4">{project.desc}</p>
-      <p className={`text-lg sm:text-xl text-orange-400 font-semibold ${index === 0 || index === 2 ? 'mt-4' : ''}`}>
-        {project.devstack}
+      <p className={`text-lg sm:text-xl text-orange-400 font-semibold ${index === 0 || index === 2 ? 'mt-4' : ''} ${index % 2 === 0 ? 'mb-4' : ''}`}>
+      {project.devstack}
       </p>
     </div>
 
