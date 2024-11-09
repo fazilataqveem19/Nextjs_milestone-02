@@ -38,7 +38,8 @@ const Navbar = () => {
     };
 
     return (
-        <div className="text-white/70 pt-6">
+        <div className="text-white/70 pt-6 relative">
+            {/* Desktop Navbar */}
             <div className="hidden md:flex items-center px-4 py-2 mx-auto max-w-[400px]">
                 <ul className="flex flex-row p-4 space-x-8">
                     {navLinks.map((link, index) => (
@@ -48,7 +49,6 @@ const Navbar = () => {
                             </Link>
                         </li>
                     ))}
-
                     <li>
                         <a href="#contact" className="group">
                             <h1 className="text-lg font-bold text-white/70 cursor-pointer">Contact Me</h1>
@@ -61,15 +61,19 @@ const Navbar = () => {
                 </ul>
             </div>
 
-            <div onClick={toggleNav} className="md:hidden absolute top-5 right-5 border rounded text-white/70 border-white/70 p-2 z-50">
-                {nav ? <AiOutlineClose size={30} /> : <AiOutlineMenu size={30} />}
+            {/* Hamburger Button */}
+            <div onClick={toggleNav} className="md:hidden absolute top-5 right-5 p-2 z-50">
+                <button className="border rounded text-white/70 border-white/70 flex items-center justify-center">
+                    {nav ? <AiOutlineClose size={30} /> : <AiOutlineMenu size={30} />}
+                </button>
             </div>
 
+            {/* Mobile Navbar */}
             <motion.div
                 initial={false}
                 animate={nav ? "open" : "closed"}
                 variants={menuVariants}
-                className="fixed left-0 top-0 w-full z-40 bg-gray-900/90 text-white"
+                className="fixed left-0 top-0 w-full h-full z-40 bg-gray-900/90 text-white"
             >
                 <ul className="text-4xl font-semibold my-24 text-center space-y-8">
                     {navLinks.map((link, index) => (
